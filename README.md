@@ -3,7 +3,7 @@ As part of interview preparation I have worked on some javascript solutions for 
 
 ---
 
-> ## 1. Find duplicate
+> ## 01. Find duplicate
 > Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
 > There is only one repeated number in nums, return this repeated number.
 > You must solve the problem without modifying the array nums and uses only constant extra space.
@@ -47,6 +47,41 @@ As part of interview preparation I have worked on some javascript solutions for 
 > };
 > ```
 >
+
+---
+
+>
+> ## 02. Birthday on fridays/weekend until 2050?
+>
+>```js
+>
+>function run(birthday_date) {
+>	const initialYear = 2016
+>	const finalYear = 2050	
+>	const weekDays=["Mon", "Tues", "Wed", "Thur", "Fri", "Sat", "Sun"]
+>	future_dates = ""
+>
+>	const d = birthday_date.split("-")[0]
+>	const m = birthday_date.split("-")[1]
+>
+>	for (let y = initialYear; y<= finalYear; y++) {
+>     const dd = y+"-"+m+"-"+d
+>		const bdate = new Date(dd)
+>		if (bdate.getDay() > 4) {
+>     future_dates += " "+ y + ": "+ weekDays[ bdate.getDay() -1 ]+","
+>		}
+>	}
+>	// to remove the first space
+>	if (future_dates !== null) {
+>      future_dates = future_dates.substring(1)
+>    }
+>	
+>	return future_dates;
+>}
+>
+>console.log(run("11-10"))
+> // 2019: Fri, 2024: Fri, 2025: Sat, 2030: Fri, 2031: Sat, 2036: Sat, 2041: Fri, 2042: Sat, 2047: Fri,
+>```
 
 
 
